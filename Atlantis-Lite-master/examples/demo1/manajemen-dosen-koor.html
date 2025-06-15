@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>manajemen-dosen-koor | Myinternship</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <link rel="icon" href="../assets/img/logomyinternship.png" type="image/x-icon" />
+
+    <!-- Fonts and icons -->
+    <script src="../assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Lato:300,400,700,900"] },
+        custom: { families: ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ["../assets/css/fonts.min.css"] },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/atlantis.min.css" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="main-header">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="blue">
+          <a href="index.html" class="logo">
+            <img src="../assets/img/logomyinternship3.png" alt="Myinternship" class="navbar-brand" style="width: 195px; height: 40px" />
+          </a>
+          <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+              <i class="icon-menu"></i>
+            </span>
+          </button>
+        </div>
+        <!-- End Logo Header -->
+
+        <!-- Navbar Header -->
+        <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+          <div class="container-fluid">
+            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+              <li class="nav-item dropdown hidden-caret">
+                <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                  <div class="avatar-sm">
+                    <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle" />
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-user animated fadeIn">
+                  <div class="dropdown-user-scroll scrollbar-outer">
+                    <li>
+                      <div class="user-box">
+                        <div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded" /></div>
+                        <div class="u-text">
+                          <h4>Hizrian</h4>
+                          <p class="text-muted">CDC</p>
+                          <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Dashboard</a>
+                      <div class="dropdown-divider"></div>
+                      <p class="dropdown-item">Change Role</p>
+                      <a class="dropdown-item" href="../demo1/mahasiswa/index-mahasiswa.html">Mahasiswa</a>
+                      <a class="dropdown-item" href="../demo1/Dosen/index-dosen.html">Dosen</a>
+                      <a class="dropdown-item" href="../demo1/perusahaan/index-perusahaan.html">Perusahaan</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="profile.html">Profile</a>
+                      <a class="dropdown-item" href="#">Logout</a>
+                    </li>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar sidebar-style-2">
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <div class="user">
+              <div class="avatar-sm float-left mr-2">
+                <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle" />
+              </div>
+              <div class="info">
+                <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                  <span>
+                    Hizrian
+                    <span class="user-level">CDC</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <ul class="nav nav-primary">
+              <li class="nav-item">
+                <a class="collapse" href="../demo1/index.html">
+                  <i class="fas fa-home"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                <h4 class="text-section">CDC menu</h4>
+              </li>
+              <li class="nav-item">
+                <a class="collapse" href="manajemen-univ.html">
+                  <i class="fas fa-university"></i>
+                  <p>Manajemen Universitas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="collapse" href="manajemen-cdc.html">
+                  <i class="far fa-edit"></i>
+                  <p>Manajemen CDC</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="collapse" href="mengelola-prodi.html">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <p>Pengelolaan Prodi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="collapse" href="manajemen-mahasiswa.html">
+                  <i class="fas fa-user-friends"></i>
+                  <p>Manajemen Mahasiswa</p>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a data-toggle="collapse" href="#charts">
+                  <i class="fas fa-user-graduate"></i>
+                  <p>Manajemen Dosen</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="charts">
+                  <ul class="nav nav-collapse">
+                    <li class="nav-item">
+                      <a href="manajemen-dosen-pm.html">
+                        <span class="sub-item">Dosen Pembimbing</span>
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a href="manajemen-dosen-koor.html">
+                        <span class="sub-item">Dosen Koordinator</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="collapse" href="manajemen-perusahaan.html">
+                  <i class="fas fa-building"></i>
+                  <p>Manajemen Perusahaan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="collapse" href="tawaran-magang.html">
+                  <i class="far fa-newspaper"></i>
+                  <p>Tawaran Magang</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar cdc -->
+
+      <!-- Dashboard cdc -->
+      <div class="main-panel">
+        <div class="content">
+          <div class="panel-header bg-primary-gradient">
+            <div class="page-inner py-5">
+              <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                <div>
+                  <h2 class="text-white pb-2 fw-bold">Manajemen Dosen Koordinator</h2>
+                  <h5 class="text-white op-7 mb-2">CDC (Carrer Development Center)</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Dashboard cdc -->
+
+          <!-- Table Dosen PM -->
+          <div class="page-inner mt--5">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="d-flex align-items-center">
+                    <h4 class="card-title">Daftar Dosen Koordinator</h4>
+                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                      <i class="fa fa-plus"></i>
+                      Tambah Dosen Koordinator
+                    </button>
+                    <button class="btn btn-primary btn-round ml-2">
+                      <i class="fas fa-file-export"></i>
+                      Expor
+                    </button>
+                  </div>
+                </div>
+                <!-- Modal tambah-->
+                <div class="card-body">
+                  <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header no-bd">
+                          <h5 class="modal-title">
+                            <span class="fw-mediumbold"> Tambah</span>
+                            <span class="fw-light"> Daftar Dosen Koordinator </span>
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6 pr-0">
+                                <div class="form-group form-group-default">
+                                  <label>No</label>
+                                  <input id="addNo" type="text" class="form-control" placeholder="" />
+                                </div>
+                              </div>
+                              <div class="col-md-6 pr-0">
+                                <div class="form-group form-group-default">
+                                  <label>Program Studi</label>
+                                  <select class="form-control" id="addProdi">
+                                    <option></option>
+                                    <optgroup label="Manajemen Bisnis"></optgroup>
+                                    <p>Semua Program Studi dalam Manajemen Bisnis</p>
+                                    <option>D2 Distribusi Barang</option>
+                                    <option>D3 Akutansi</option>
+                                    <option>D4 Administrasi Bisnis Terapan</option>
+                                    <option>D4 Akutansi Manajerial</option>
+                                    <option>D4 Logistik Perdagangan Internasional</option>
+                                    <optgroup label="Teknik Informatika"></optgroup>
+                                    <p>Semua Program Studi dalam Teknik Informatika</p>
+                                    <option>D3 Teknologi Geomatika</option>
+                                    <option>D3 Teknik Informatika</option>
+                                    <option>D4 Animasi</option>
+                                    <option>D4 Teknologi Rekayasa Multimedia</option>
+                                    <option>D4 Rekayasa Keamanan Siber</option>
+                                    <option>D4 Teknologi Rekayasa Perangkat Lunak</option>
+                                    <optgroup label="Teknik Elektro"></optgroup>
+                                    <p>Semua Program Studi dalam Teknik Elektro</p>
+                                    <option>D2 Teknik Otomasi</option>
+                                    <option>D3 Teknik Elektronika Manufaktur</option>
+                                    <option>D3 Teknik Instrumentasi</option>
+                                    <option>D4 Teknik Mekatronika</option>
+                                    <option>D4 Teknik Robotika</option>
+                                    <option>D4 Teknologi Rekayasa Pembangkit Energi</option>
+                                    <option>D4 Teknologi Rekayasa Elektronika</option>
+                                    <optgroup label="Teknik Mesin"></optgroup>
+                                    <p>Semua Program Studi dalam Teknik Mesin</p>
+                                    <option>D3 Teknik Mesin</option>
+                                    <option>D3 Teknik Perawatan Pesawat Udara</option>
+                                    <option>D4 Teknik Rekayasa Konstruksi Perkapalan</option>
+                                    <option>D4 Teknik Rekayasa Pengelasan dan Fabrikasi</option>
+                                    <option>Profesi Program Profesi Insinyur</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group form-group-default">
+                                  <label>NIK</label>
+                                  <input id="addNIK" type="text" class="form-control" placeholder="" />
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group form-group-default">
+                                  <label>Nama</label>
+                                  <input id="addNama" type="text" class="form-control" placeholder="" />
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group form-group-default">
+                                  <label>Status</label>
+                                  <select class="form-control" id="addStatus" required>
+                                    <option></option>
+                                    <option>Aktif</option>
+                                    <option>Tidak Aktif</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer no-bd">
+                          <button type="button" id="addRowButton" class="btn btn-primary">Tambah</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal Tambah -->
+
+                  <!-- Modal Edit -->
+                  <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header no-bd">
+                          <h5 class="modal-title">
+                            <span class="fw-mediumbold"> Ubah</span>
+                            <span class="fw-light"> Daftar Dosen Pembimbing </span>
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6 pr-0">
+                                <div class="form-group form-group-default">
+                                  <label>No</label>
+                                  <input id="editNo" type="text" class="form-control" placeholder="" />
+                                </div>
+                              </div>
+                              <div class="col-md-6 pr-0">
+                                <div class="form-group form-group-default">
+                                  <label>Program Studi</label>
+                                  <select class="form-control" id="editProdi">
+                                    <option></option>
+                                    <optgroup label="Manajemen Bisnis"></optgroup>
+                                    <option>D2 Distribusi Barang</option>
+                                    <option>D3 Akutansi</option>
+                                    <option>D4 Administrasi Bisnis Terapan</option>
+                                    <option>D4 Akutansi Manajerial</option>
+                                    <option>D4 Logistik Perdagangan Internasional</option>
+
+                                    <optgroup label="Teknik Informatika"></optgroup>
+                                    <p>Semua Program Studi dalam Teknik Informatika</p>
+                                    <option>D3 Teknologi Geomatika</option>
+                                    <option>D3 Teknik Informatika</option>
+                                    <option>D4 Animasi</option>
+                                    <option>D4 Teknologi Rekayasa Multimedia</option>
+                                    <option>D4 Rekayasa Keamanan Siber</option>
+                                    <option>D4 Teknologi Rekayasa Perangkat Lunak</option>
+
+                                    <optgroup label="Teknik Elektro"></optgroup>
+                                    <p>Semua Program Studi dalam Teknik Elektro</p>
+                                    <option>D2 Teknik Otomasi</option>
+                                    <option>D3 Teknik Elektronika Manufaktur</option>
+                                    <option>D3 Teknik Instrumentasi</option>
+                                    <option>D4 Teknik Mekatronika</option>
+                                    <option>D4 Teknik Robotika</option>
+                                    <option>D4 Teknologi Rekayasa Pembangkit Energi</option>
+                                    <option>D4 Teknologi Rekayasa Elektronika</option>
+
+                                    <optgroup label="Teknik Mesin"></optgroup>
+                                    <p>Semua Program Studi dalam Teknik Mesin</p>
+                                    <option>D3 Teknik Mesin</option>
+                                    <option>D3 Teknik Perawatan Pesawat Udara</option>
+                                    <option>D4 Teknik Rekayasa Konstruksi Perkapalan</option>
+                                    <option>D4 Teknik Rekayasa Pengelasan dan Fabrikasi</option>
+                                    <option>Profesi Program Profesi Insinyur</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group form-group-default">
+                                  <label>NIK</label>
+                                  <input id="editNIK" type="text" class="form-control" placeholder="" />
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group form-group-default">
+                                  <label>Nama</label>
+                                  <input id="editNama" type="text" class="form-control" placeholder="" />
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group form-group-default">
+                                  <label>Status</label>
+                                  <select class="form-control" id="editStatus" required>
+                                    <option></option>
+                                    <option>Aktif</option>
+                                    <option>Tidak Aktif</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer no-bd">
+                          <button type="button" id="editRowButton" class="btn btn-primary">Ubah</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal Edit  -->
+
+                  <div class="table-responsive">
+                    <table id="add-row" class="display table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Program Studi</th>
+                          <th>NIK</th>
+                          <th>Nama</th>
+                          <th>Status</th>
+                          <th style="width: 5%; text-align: center">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Teknologi Rekayasa Perangkat Lunak</td>
+                          <td>023321</td>
+                          <td>Sandy Sapta Wirayudha</td>
+                          <td>Aktif</td>
+                          <td>
+                            <div class="form-button-action">
+                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                <i class="fa fa-times"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Teknologi Rekayasa Perangkat Lunak</td>
+                          <td>023322</td>
+                          <td>Raihan Putra Atmaja</td>
+                          <td>Aktif</td>
+                          <td>
+                            <div class="form-button-action">
+                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                <i class="fa fa-times"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Teknologi Rekayasa Perangkat Lunak</td>
+                          <td>023323</td>
+                          <td>Andri Yani Meuraxa</td>
+                          <td>Aktif</td>
+                          <td>
+                            <div class="form-button-action">
+                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                <i class="fa fa-times"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Teknologi Rekayasa Perangkat Lunak</td>
+                          <td>023324</td>
+                          <td>Miftahur Rahmah</td>
+                          <td>Aktif</td>
+                          <td>
+                            <div class="form-button-action">
+                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                <i class="fa fa-times"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>Teknologi Rekayasa Perangkat Lunak</td>
+                          <td>023325</td>
+                          <td>Alendea Resta Amaira</td>
+                          <td>Aktif</td>
+                          <td>
+                            <div class="form-button-action">
+                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                <i class="fa fa-times"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>Teknologi Rekayasa Perangkat Lunak</td>
+                          <td>023326</td>
+                          <td>Rahel Tarigan</td>
+                          <td>Aktif</td>
+                          <td>
+                            <div class="form-button-action">
+                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                <i class="fa fa-times"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Table Dosen PM -->
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="pull-left">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> ThemeKita </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> Help </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> Licenses </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright ml-auto">made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">PBL-TRPL 203</a></div>
+          </div>
+        </footer>
+      </div>
+      <!-- End Footer -->
+    </div>
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="../assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+    <script src="../assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Atlantis JS -->
+    <script src="../assets/js/atlantis.min.js"></script>
+
+    <!-- Atlantis DEMO methods, don't include it in your project! -->
+    <script src="../assets/js/setting-demo.js"></script>
+    <script src="../assets/js/demo.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 5,
+        });
+
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+        $("#addRowButton").click(function () {
+          $("#add-row")
+            .dataTable()
+            .fnAddData([$("#addNo").val(), $("#addNIK").val(), $("#addNama").val(), $("#addStatus").val(), $("#addPeran").val(), action]);
+          $("#addRowModal").modal("hide");
+        });
+
+        // edit Row
+        $("#edit-row").DataTable({
+          pageLength: 5,
+        });
+
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+        $("#editRowButton").click(function () {
+          $("#edit-row")
+            .dataTable()
+            .fneditData([$("#editNo").val(), $("#editNIK").val(), $("#editNama").val(), $("#editStatus").val(), $("#editPeran").val(), action]);
+          $("#editRowModal").modal("hide");
+        });
+      });
+    </script>
+  </body>
+</html>
