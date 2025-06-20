@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Manajemen-universitas | Myinternship</title>
+    <title>Ubah Prodi | Myinternship</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="../../assets/img/logomyinternship.png" type="image/x-icon" />
 
@@ -108,7 +108,7 @@
                 </span>
                 <h4 class="text-section">CDC menu</h4>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item  active">
                 <a class="collapse" href="../manajemen-univ/manajemen-univ.html">
                   <i class="fas fa-university"></i>
                   <p>Manajemen Universitas</p>
@@ -172,66 +172,48 @@
             <div class="page-inner py-5">
               <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                 <div>
-                  <h2 class="text-white pb-2 fw-bold">Manajemen Universitas</h2>
-                  <h5 class="text-white op-7 mb-2">CDC (Carrer Development Center)</h5>
-                  </div>
+                  <h2 class="text-white pb-2 fw-bold">Ubah Program Studi</h2>
+                  <h5 class="text-white op-7 mb-2">Mengubah detail untuk Program Studi yang akan didaftarkan</h5>
+                </div>
               </div>
             </div>
           </div>
           <!-- End Dashboard cdc -->
 
-          <!-- Table Manajemen Univ -->
-        <div class="page-inner mt--5">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <div class="d-flex align-items-center">
-                  <h4 class="card-title">Daftar Universitas</h4>
-                  <a href="createUniv.html" class="btn btn-md btn-primary btn-round ml-auto">
-                    <i class="fa fa-plus"></i>
-                    Tambah Universitas
-                  </a>
-                </div>
-              </div>
-              <!-- Modal tambah-->
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table id="add-row" class="display table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Logo Universitas</th>
-                        <th>Nama Universitas</th>
-                        <th style="width: 5%; text-align:center;">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>polibatam.png</td>
-                        <td>Polibatam</td>
-                        <td>
-                          <div class="form-action">
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
-                                <a href="detail-univ.html"><i class="fa fa-info-circle"></i></a>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
+          <!-- Card Create CDC -->
+          <div class="page-inner mt--5">
+              <div class="row justify-content-center">
+                  <div class="col-md-10">
+                      <div class="card">
+                          <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                  <h4 class="card-title">Formulir Ubah Program Studi</h4>
+                                  <a href="detail-univ.html" class="btn btn-md btn-primary btn-round ml-auto">
+                                      <i class="fas fa-arrow-left"></i>
+                                      Kembali
+                                  </a>
+                              </div>
                           </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                          <div class="card-body">
+                              <form action="{{ route('admin.cdc.store') }}" method="POST">
+                                  <div class="form-group">
+                                      <label for="name">Nama Program Studi <span class="text-danger">*</span></label>
+                                      <input type="text" name="name" id="name" class="form-control" value="Teknologi Rekayasa Perangkat Lunak" required placeholder="Masukkan Nama Program Studi">
+                                      <!-- @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror -->
+                                  </div>                              
+                                  
+                                  <div class="card-action mt-3 text-right">
+                                      <button type="submit" class="btn btn-success"><i class="fas fa-save mr-1"></i> Simpan Perubahan Program Studi</button>
+                                      <button type="reset" class="btn btn-danger ml-2"><i class="fas fa-times mr-1"></i> Batal</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
           </div>
         </div>
-        </div>
-        <!-- End Table Manajemen Univ -->
+        <!-- End Table Manajemen CDC -->
 
         <!-- Footer -->
         <footer class="footer">
@@ -282,49 +264,38 @@
     <!-- Atlantis DEMO methods, don't include it in your project! -->
     <script src="../../assets/js/setting-demo.js"></script>
     <script src="../../assets/js/demo.js"></script>
-    <script >
-		$(document).ready(function() {
+    <script>
+      $(document).ready(function () {
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 5,
+        });
 
-			// Add Row
-			$('#add-row').DataTable({
-				"pageLength": 5,
-			});
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
 
-			var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+        $("#addRowButton").click(function () {
+          $("#add-row")
+            .dataTable()
+            .fnAddData([$("#addNo").val(), $("#addNama").val(), $("#addPengguna").val(), $("#addStatus").val(), $("#addUniv").val(), action]);
+          $("#addRowModal").modal("hide");
+        });
 
-			$('#addRowButton').click(function() {
-				$('#add-row').dataTable().fnAddData([
-          $("#addLogo").val(),
-					$("#addNama").val(),
-					$("#addNomor").val(),
-					$("#addAlamat").val(),
-					$("#addLink").val(),
-					action
-					]);
-				$('#addRowModal').modal('hide');
+        // edit Row
+        $("#edit-row").DataTable({
+          pageLength: 5,
+        });
 
-			});
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
 
-      	// edit Row
-			$('#edit-row').DataTable({
-				"pageLength": 5,
-			});
-
-			var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
-
-			$('#editRowButton').click(function() {
-				$('#edit-row').dataTable().fneditData([
-					$("#editLogo").val(),
-					$("#editNama").val(),
-					$("#editNomort").val(),
-					$("#editAlamat").val(),
-					$("#editLink").val(),
-					action
-					]);
-				$('#editRowModal').modal('hide');
-
-			});
-		});
-	</script>
+        $("#editRowButton").click(function () {
+          $("#edit-row")
+            .dataTable()
+            .fneditData([$("#addNo").val(), $("#editNama").val(), $("#editPengguna").val(), $("#editStatus").val(), $("#editUniv").val(), action]);
+          $("#editRowModal").modal("hide");
+        });
+      });
+    </script>
   </body>
 </html>

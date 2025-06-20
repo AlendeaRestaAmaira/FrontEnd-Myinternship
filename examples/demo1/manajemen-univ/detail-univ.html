@@ -308,100 +308,13 @@
                 <div class="card-header">
                   <div class="d-flex align-items-center">
                     <h2 class="card-title">Jurusan</h2>
-                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                    <a href="createJurusan.html" class="btn btn-md btn-primary btn-round ml-auto">
                       <i class="fa fa-plus"></i>
                       Tambah Jurusan
-                    </button>
+                    </a>
                   </div>
                 </div>
-                <!-- Modal tambah-->
                 <div class="card-body">
-                  <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header no-bd">
-                          <h5 class="modal-title">
-                            <span class="fw-mediumbold"> Tambah</span>
-                            <span class="fw-light"> Jurusan </span>
-                          </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="row">
-                                <!-- Jurusan input -->
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                    <label>Jurusan</label>
-                                    <div data-mdb-input-init >
-                                        <select id="jurusan" onchange="updateProdi()" class="form-control form-control-lg" placeholder="Masukkan e-mail" required>
-                                            <option selected>Pilih Jurusan Anda</option>
-                                            <option value="mb">Manajemen Bisnis</option>
-                                            <option value="if">Teknik Informatika</option>
-                                            <option value="elektro">Teknik Elektro</option>
-                                            <option value="mesin">Teknik Mesin</option>
-                                        </select>
-                                      </div>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer no-bd">
-                          <button type="button" id="addRowButton" class="btn btn-primary">Tambah</button>
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Modal Tambah -->
-  
-                  <!-- Modal Edit -->
-                  <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header no-bd">
-                            <h5 class="modal-title">
-                              <span class="fw-mediumbold"> Ubah</span>
-                              <span class="fw-light"> Universitas </span>
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form>
-                                <div class="row">
-                                    <!-- Jurusan input -->
-                                  <div class="col-md-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Jurusan</label>
-                                        <div data-mdb-input-init >
-                                            <select id="jurusan" onchange="updateProdi()" class="form-control form-control-lg" placeholder="Masukkan e-mail" required>
-                                                <option selected>Pilih Jurusan Anda</option>
-                                                <option value="mb">Manajemen Bisnis</option>
-                                                <option value="if">Teknik Informatika</option>
-                                                <option value="elektro">Teknik Elektro</option>
-                                                <option value="mesin">Teknik Mesin</option>
-                                            </select>
-                                          </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                          </div>
-                          <div class="modal-footer no-bd">
-                            <button type="button" id="editRowButton" class="btn btn-primary">Ubah</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  <!-- End Modal Edit  -->
-                  
-                  <!-- datatable Jurusan -->
                   <div class="table-responsive">
                     <table id="add-row" class="display table table-striped table-hover">
                       <thead>
@@ -417,50 +330,8 @@
                           <td>Teknik Informatika</td>
                           <td>
                             <div class="form-button-action">
-                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
-                                <i class="fa fa-edit"></i>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Teknik Mesin</td>
-                          <td>
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
-                                <i class="fa fa-edit"></i>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Teknik Elektro</td>
-                          <td>
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
-                                <i class="fa fa-edit"></i>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Manajemen Bisnis</td>
-                          <td>
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
-                                <i class="fa fa-edit"></i>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
+                                <a href="editJurusan.html"><i class="fa fa-edit"></i></a>
                               </button>
                               <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
                                 <i class="fa fa-trash"></i>
@@ -482,160 +353,18 @@
                 <div class="card-header">
                   <div class="d-flex align-items-center">
                     <h2 class="card-title">Program Studi</h2>
-                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                    <a href="createProdi.html" class="btn btn-md btn-primary btn-round ml-auto">
                       <i class="fa fa-plus"></i>
                       Tambah Program Studi
-                    </button>
+                    </a>
                   </div>
                 </div>
-                <!-- Modal tambah-->
                 <div class="card-body">
-                  <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header no-bd">
-                          <h5 class="modal-title">
-                            <span class="fw-mediumbold"> Tambah</span>
-                            <span class="fw-light"> Program Studi </span>
-                          </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-
-                          <th>Kode Prodi</th>
-                          <th>Jenjang</th>
-                          <th>Jurusan</th>
-                          <th>Program Studi</th>
-
-                          <form>
-                            <div class="row">
-                              <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                  <label>Kode Prodi</label>
-                                  <input id="addKode" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                    <label>Jenjang</label>
-                                    <div data-mdb-input-init >
-                                        <select id="jurusan" class="form-control" placeholder="" required>
-                                            <option selected>Pilih Jenjang</option>
-                                            <option>Diploma 2 (D2)</option>
-                                            <option>Diploma 3 (D3)</option>
-                                            <option>Sarjana Terapan (D4)</option>
-                                            <option>Program Profesi Insinyur (PSPPI)</option>
-                                            <option>Magister Terapan (S2)</option>
-                                            <option></option>
-                                        </select>
-                                    </div>
-                                </div>
-                              </div>
-                                <!-- Jurusan input -->
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                    <label>Jurusan</label>
-                                    <div data-mdb-input-init >
-                                        <select id="jurusan" onchange="updateProdi()" class="form-control form-control-lg" placeholder="" required>
-                                            <option selected>Pilih Jurusan Anda</option>
-                                            <option value="mb">Manajemen Bisnis</option>
-                                            <option value="if">Teknik Informatika</option>
-                                            <option value="elektro">Teknik Elektro</option>
-                                            <option value="mesin">Teknik Mesin</option>
-                                        </select>
-                                    </div>
-                                </div>
-                              </div>
-                              
-                              <!-- Prodi input -->
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                    <label>Program Studi</label>
-                                    <div data-mdb-input-init>
-                                        <select id="prodi" class="form-control form-control-lg" required>
-                                            <option selected>Pilih Program Studi Anda</option>
-                                        </select>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer no-bd">
-                          <button type="button" id="addRowButton" class="btn btn-primary">Tambah</button>
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Modal Tambah -->
-  
-                  <!-- Modal Edit -->
-                  <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header no-bd">
-                            <h5 class="modal-title">
-                              <span class="fw-mediumbold"> Ubah</span>
-                              <span class="fw-light"> Universitas </span>
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form>
-                                <div class="row">
-                                    <!-- Jurusan input -->
-                                  <div class="col-md-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Jurusan</label>
-                                        <div data-mdb-input-init >
-                                            <select id="jurusan" onchange="updateProdi()" class="form-control form-control-lg" placeholder="Masukkan e-mail" required>
-                                                <option selected>Pilih Jurusan Anda</option>
-                                                <option value="mb">Manajemen Bisnis</option>
-                                                <option value="if">Teknik Informatika</option>
-                                                <option value="elektro">Teknik Elektro</option>
-                                                <option value="mesin">Teknik Mesin</option>
-                                            </select>
-                                          </div>
-                                    </div>
-                                  </div>
-                                  
-                                  <!-- Prodi input -->
-                                  <div class="col-md-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Program Studi</label>
-                                        <div data-mdb-input-init>
-                                            <select id="prodi" class="form-control form-control-lg" required>
-                                                <option selected>Pilih Program Studi Anda</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                          </div>
-                          <div class="modal-footer no-bd">
-                            <button type="button" id="editRowButton" class="btn btn-primary">Ubah</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  <!-- End Modal Edit  -->
-                  
-                  <!-- datatable Jurusan -->
                   <div class="table-responsive">
                     <table id="add-row" class="display table table-striped table-hover">
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Kode Prodi</th>
-                          <th>Jenjang</th>
-                          <th>Jurusan</th>
                           <th>Program Studi</th>
                           <th style="width: 5%; text-align:center;">Action</th>
                         </tr>
@@ -643,14 +372,11 @@
                       <tbody>
                         <tr>
                           <td>1</td>
-                          <td>TRPL</td>
-                          <td>D4</td>
-                          <td>Teknik Informatika</td>
                           <td>Teknik Rekayasa Perangkat Lunak</td>
                           <td>
                             <div class="form-button-action">
-                              <button type="button" data-toggle="modal" data-target="#editRowModal" class="btn btn-link btn-primary btn-lg">
-                                <i class="fa fa-edit"></i>
+                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
+                                <a href="editProdi.html"><i class="fa fa-edit"></i></a>
                               </button>
                               <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
                                 <i class="fa fa-trash"></i>
