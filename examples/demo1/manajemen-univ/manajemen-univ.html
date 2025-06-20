@@ -187,140 +187,14 @@
               <div class="card-header">
                 <div class="d-flex align-items-center">
                   <h4 class="card-title">Daftar Universitas</h4>
-                  <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+                  <a href="create.html" class="btn btn-md btn-primary btn-round ml-auto">
                     <i class="fa fa-plus"></i>
                     Tambah Universitas
-                  </button>
+                  </a>
                 </div>
               </div>
               <!-- Modal tambah-->
               <div class="card-body">
-                <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header no-bd">
-                        <h5 class="modal-title">
-                          <span class="fw-mediumbold"> Tambah</span>
-                          <span class="fw-light"> Universitas </span>
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label for="addLogo" class="form-label">Logo</label>
-                                <input class="form-control" type="file" id="addLogo" accept=".jpg,.jpeg,.png" required>
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label>Nama Universitas</label>
-                                <input id="addNama" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Nomor Telepon</label>
-                                <input id="addNomor" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Alamat</label>
-                                <textarea rows="3" id="addAlamat" type="text-area" class="form-control" placeholder="" required></textarea>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Foto Profil</label>
-                                <input id="addFoto" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Link Website</label>
-                                <input id="addLink" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer no-bd">
-                        <button type="button" id="addRowButton" class="btn btn-primary">Tambah</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Modal Tambah -->
-                <!-- Modal Edit -->
-                <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header no-bd">
-                        <h5 class="modal-title">
-                          <span class="fw-mediumbold"> Ubah</span>
-                          <span class="fw-light"> Universitas </span>
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label for="editLogo" class="form-label">Logo</label>
-                                <input class="form-control" type="file" id="addLogo" accept=".jpg,.jpeg,.png" required>
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label>Nama Universitas</label>
-                                <input id="editNama" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Nomor Telepon</label>
-                                <input id="editNomor" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Alamat</label>
-                                <textarea rows="3" id="editAlamat" type="text-area" class="form-control" placeholder="" required></textarea>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Foto Profil</label>
-                                <input id="editFoto" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Link Website</label>
-                                <input id="editLink" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer no-bd">
-                        <button type="button" id="editRowButton" class="btn btn-primary">Ubah</button>
-                        <button type="button" id="editRowButton" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Modal Edit  -->
-
                 <div class="table-responsive">
                   <table id="add-row" class="display table table-striped table-hover">
                     <thead>
@@ -336,40 +210,6 @@
                         <td>1</td>
                         <td>polibatam.png</td>
                         <td>Polibatam</td>
-                        <td>
-                          <div class="form-action">
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
-                                <a href="detail-univ.html"><i class="fa fa-info-circle"></i></a>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>polimedan.png</td>
-                        <td>Polimedan</td>
-                        <td>
-                          <div class="form-action">
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
-                                <a href="detail-univ.html"><i class="fa fa-info-circle"></i></a>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>polimeg.png</td>
-                        <td>Polimagelang</td>
                         <td>
                           <div class="form-action">
                             <div class="form-button-action">

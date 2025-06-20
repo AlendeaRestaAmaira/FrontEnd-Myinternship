@@ -214,10 +214,17 @@
                       <label class="form-label">Nama Universitas</label>
                       <input type="text" class="form-control"  placeholder="Masukkan Nama Universitas">
                     </div>
+
                     <div class="mb-3">
                       <label class="form-label">Nomor Telepon</label>
                       <input type="text" class="form-control"  placeholder="Masukkan Nomor Telepon">
                     </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Alamat Website</label>
+                      <input type="text" class="form-control"  placeholder="Masukkan Website Kampus">
+                    </div>
+
                     <div class="row">
                       <div class="col-md-6 mb-3">
                         <label class="form-label">Provinsi</label>
@@ -226,6 +233,7 @@
                           <option></option>
                         </select>
                       </div>
+
                       <div class="col-md-6 mb-3">
                         <label class="form-label">Kota/Kabupaten</label>
                         <select class="form-select form-control">
@@ -233,6 +241,7 @@
                           <option></option>
                         </select>
                       </div>
+
                       <div class="col-md-6 mb-3">
                         <label class="form-label">Kecamatan/Desa</label>
                         <select class="form-select form-control">
@@ -240,84 +249,55 @@
                           <option></option>
                         </select>
                       </div>
+
                       <div class="col-md-6 mb-3">
                         <label class="form-label">Kode Pos</label>
                         <input type="text" class="form-control" placeholder="Masukkan Kode Pos Anda">
                       </div>
-                    </div>                    
+                    </div>
+
                     <div class="mb-3">
                       <label class="form-label">Alamat</label>
-                      <input type="text" class="form-control"  placeholder="Masukkan Alamat Anda">
+                      <textarea type="text" class="form-control" rows="2" placeholder="Masukkan Alamat Anda"></textarea>
                     </div>
-                    <div class="mb-3">
-                      <label class="form-label">Foto Profil</label>
-                      <input type="text" class="form-control"  placeholder="polibatam.png">
+
+                    <hr>
+                    <div class="form-group">
+                      <label for="profile_photo">Foto Profil <span class="text-danger">*</span></label>
+                      <input type="file" name="profile_photo" id="profile_photo" class="form-control-file" accept="image/*">
+
+                      <div class="mt-2">
+                        <img id="preview-photo" src="path/to/foto_lama.jpg" alt="Preview Foto" style="max-height:150px;">
+                      </div>
                     </div>
-                    <div class="mb-3">
-                      <label class="form-label">Alamat Website</label>
-                      <input type="text" class="form-control"  placeholder="Masukkan Website Kampus">
-                    </div>
+
+                    <!-- js profil -->
+                    <script>
+                      const photoInput = document.getElementById('profile_photo');
+                      const preview = document.getElementById('preview-photo');
+                    
+                      // Simpan src awal (foto lama) di variable
+                      const originalSrc = preview.src;
+                    
+                      // Saat user pilih gambar baru
+                      photoInput.onchange = function () {
+                        const [file] = this.files;
+                        if (file) {
+                          preview.src = URL.createObjectURL(file);
+                        }
+                      };
+                    
+                      // Saat user tekan tombol reset
+                      document.getElementById('editForm').addEventListener('reset', function () {
+                        preview.src = originalSrc;
+                        photoInput.value = ''; // kosongkan input file juga
+                      });
+                    </script>
+
                     <button type="submit" class="btn btn-success"><i class="fas fa-save mr-1"></i> Simpan Perubahan Universitas</button>
-                    <button type="reset" class="btn btn-danger ml-2"><i class="fas fa-times mr-1"></i> Reset</button>
+                    <button type="reset" class="btn btn-danger ml-2"><i class="fas fa-times mr-1"></i> Batal</button>
                   </form>
                 </div>
-
-                <!-- Modal ubah-->
-              <div class="card-body">
-                <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <form>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label for="editLogo" class="form-label">Logo</label>
-                                <input class="form-control" type="file" id="editLogo" accept=".jpg,.jpeg,.png" required>
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label>Nama Universitas</label>
-                                <input id="editNama" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Nomor Telepon</label>
-                                <input id="editNomor" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Alamat</label>
-                                <textarea rows="3" id="editAlamat" type="text-area" class="form-control" placeholder="" required></textarea>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Foto Profil</label>
-                                <input id="editFoto" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Link Website</label>
-                                <input id="editLink" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer no-bd">
-                        <button type="button" id="editRowButton" class="btn btn-primary">Ubah</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Modal Tambah -->
-              </div>
             </div>
           </div>
           <!-- end card pertama -->
