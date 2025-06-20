@@ -62,8 +62,7 @@
                           <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                         </div>
                       </div>
-                    </li>
-                    <li>
+                    </li><li>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Dashboard</a>
                       <a class="dropdown-item" href="profile.html">Profile</a>
@@ -78,8 +77,8 @@
         <!-- End Navbar -->
       </div>
 
-      <!-- Sidebar -->
-      <div class="sidebar sidebar-style-2">
+       <!-- Sidebar -->
+       <div class="sidebar sidebar-style-2">
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <div class="user">
@@ -98,10 +97,10 @@
             <!-- End sidebar profile -->
             <ul class="nav nav-primary">
               <li class="nav-item">
-                <a class="collapse" href="../index.html">
-                  <i class="fas fa-home"></i>
-                  <p>Dashboard</p>
-                </a>
+                  <a class="collapse" href="../index.html">
+                    <i class="fas fa-home"></i>
+                    <p>Dashboard</p>
+                  </a>
               </li>
               <li class="nav-section">
                 <span class="sidebar-mini-icon">
@@ -183,55 +182,78 @@
 
           <!-- Table Manajemen CDC -->
           <div class="page-inner mt--5">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <div class="d-flex align-items-center">
-                    <h4 class="card-title">Daftar Pengguna CDC</h4>
-                    <a href="create.html" class="btn btn-md btn-primary btn-round ml-auto">
-                      <i class="fa fa-plus"></i>
-                      Tambah CDC
-                    </a>
+              <div class="row justify-content-center">
+                  <div class="col-md-10">
+                      <div class="card">
+                          <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                  <h4 class="card-title">Formulir Pendaftaran Staf CDC</h4>
+                                  <a href="manajemen-cdc.html" class="btn btn-md btn-primary btn-round ml-auto">
+                                      <i class="fas fa-arrow-left"></i>
+                                      Kembali
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="card-body">
+                              <form action="{{ route('admin.cdc.store') }}" method="POST">
+                                  <div class="form-group">
+                                      <label for="name">Nama Lengkap CDC <span class="text-danger">*</span></label>
+                                      <input type="text" name="name" id="name" class="form-control" value="CDC Polibatam" placeholder="Masukkan Nama Lengkap">
+                                      <!-- @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror -->
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="email">Email CDC <span class="text-danger">*</span></label>
+                                      <input type="email" name="email" id="email" class="form-control" value="polibatam@gmail.com" required placeholder="Masukkan Email Anda">
+                                      <!-- @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror -->
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="phone">Nomor Telepon <span class="text-danger">*</span></label>
+                                      <input type="tel" name="phone" id="phone" class="form-control" value="082383276076" required placeholder="Masukkan Nomor Telepon">
+                                      <!-- @error('phone') <div class="invalid-feedback">{{ $message }}</div> @enderror -->
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="password">Kata Sandi <span class="text-danger">*</span></label>
+                                      <div class="input-group">
+                                          <input type="password" name="password" id="password" class="form-control" required placeholder="Min. 8 karakter (huruf besar, huruf kecil, angka, simbol)">
+                                          <button class="btn btn-outline-secondary" type="button" id="togglePassword" tabindex="-1">
+                                              <i class="fa fa-eye" id="togglePasswordIcon"></i>
+                                          </button>
+                                      </div>
+                                      <!-- @error('password') <div class="invalid-feedback">{{ $message }}</div> @enderror -->
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="password_confirmation">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
+                                      <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required placeholder="Ulangi Kata Sandi">
+                                  </div>
+
+                                  <hr>
+
+                                  <div class="form-group">
+                                      <label for="cdc_campus">Pilih Kampus Penempatan <span class="text-danger">*</span></label>
+                                      <select name="cdc_campus" id="cdc_campus" class="form-control"  required>
+                                          <option value="" disabled {{ old('cdc_campus') ? '' : 'selected' }}>-- Pilih Kampus --</option>
+                                          <!-- @foreach($campuses as $campus)
+                                              <option value="{{ $campus->campus_id }}" {{ old('cdc_campus') == $campus->campus_id ? 'selected' : '' }}>
+                                                  {{ $campus->campus_name }}
+                                              </option>
+                                          @endforeach -->
+                                      </select>
+                                      <!-- @error('cdc_campus') <div class="invalid-feedback">{{ $message }}</div> @enderror -->
+                                  </div>
+                                  
+                                  <div class="card-action mt-3 text-right">
+                                      <button type="submit" class="btn btn-success"><i class="fas fa-save mr-1"></i> Simpan CDC</button>
+                                      <button type="reset" class="btn btn-danger ml-2"><i class="fas fa-times mr-1"></i> Batal</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
                   </div>
-                </div>
-                <!-- Modal tambah-->
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table id="add-row" class="display table table-striped table-hover">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Nama</th>
-                          <th>Email</th>
-                          <th>Nomor Telepon</th>
-                          <th>Universitas</th>
-                          <th style="width: 5%; text-align: center">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>CDC Polibatam</td>
-                          <td>polibatam@gmail.com</td>
-                          <td>082383276076</td>
-                          <td>Politeknik Negeri Batam</td>
-                          <td>
-                            <div class="form-button-action">
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
-                                <a href="edit.html"><i class="fa fa-edit"></i></a>
-                              </button>
-                              <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
               </div>
-            </div>
           </div>
         </div>
         <!-- End Table Manajemen CDC -->
