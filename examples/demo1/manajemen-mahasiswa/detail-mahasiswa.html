@@ -31,7 +31,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="blue">
           <a href="index.html" class="logo">
-            <img src="../../assets/img/logomyinternship3.png" alt="Myinternship" class="navbar-brand" style="width: 195px; height: 40px" />
+            <img src="../../assets/img/my_internship_logo_grey6.png" alt="Myinternship" class="navbar-brand" style="width: 195px; height: 40px" />
           </a>
           <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -202,89 +202,69 @@
                     <img src="../../assets/img/logomyinternship3.png" alt="Logo Universitas" style="max-width: 150px;">
                     </div>
                 <!-- end logo univ -->
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
                   <h2 class="mb-4">Detail Manajemen Mahasiswa</h2>
+                  <a href="manajemen-mahasiswa.html" class="btn btn-md btn-primary btn-round">
+                    <i class="fas fa-arrow-left"></i>
+                    Kembali
+                  </a>
+                </div>
                   <form>
                     <div class="mb-3">
-                      <label class="form-label">Nama Universitas</label>
-                      <input type="text" class="form-control" disabled placeholder="Politeknik Negeri Batam">
+                      <label class="form-label">Nama Lengkap</label>
+                      <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap">
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Nomor Telepon</label>
-                      <input type="text" class="form-control" disabled placeholder="083452323454">
+                      <label class="form-label">E-mail</label>
+                      <input type="text" class="form-control" placeholder="Masukkan E-mail Aktif" >
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Alamat</label>
-                      <input type="text" class="form-control" disabled placeholder="Kepulauan Riau, Kota Batam, Jl.Ahmad Yani Batam Kota">
+                      <label class="form-label">Nomor Telepeon</label>
+                      <input type="text" class="form-control" placeholder="Masukkan Nomor Telepon(Contoh:081234567)" >
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Foto Profil</label>
-                      <input type="text" class="form-control" disabled placeholder="polibatam.png">
+                      <label class="form-label">Kata Sandi</label>
+                      <input type="text" class="form-control" placeholder="Masukkan Kata Sandi" >
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Alamat Website</label>
-                      <input type="text" class="form-control" disabled placeholder="https://wwww.polibatam.ac.id">
+                      <label class="form-label">Konfirmasi Kata Sandi</label>
+                      <input type="text" class="form-control" placeholder="Ulangi Kata Sandi" >
                     </div>
-                    <button type="submit" class="btn btn-primary">Ubah</button>
-                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    <div class="mb-3">
+                      <label class="form-label">NIM</label>
+                      <input type="text" class="form-control" placeholder="Masukkan NIM" >
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Tahun Angkatan</label>
+                      <input type="number" class="form-control" placeholder="YYYY" >
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Nama Kampus</label>
+                      <select class="form-select form-control">
+                        <option selected disabled hidden>--Pilih Kampus--</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Jurusan</label>
+                      <select class="form-select form-control">
+                        <option selected disabled hidden>--Pilih Jurusan--</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Program Studi</label>
+                      <select class="form-select form-control">
+                        <option selected disabled hidden>--Pilih Program Studi--</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <!-- ini untuk menjadikan fieldnya kebagi dua col-md-6 mb-3 -->
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save mr-1"></i> Simpan Perubahan Universitas</button>
+                    <button type="reset" class="btn btn-danger ml-2"><i class="fas fa-times mr-1"></i> Batal</button>
                   </form>
                 </div>
-
-                <!-- Modal ubah-->
-              <div class="card-body">
-                <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <form>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label for="editLogo" class="form-label">Logo</label>
-                                <input class="form-control" type="file" id="editLogo" accept=".jpg,.jpeg,.png" required>
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
-                                <label>Nama Universitas</label>
-                                <input id="editNama" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Nomor Telepon</label>
-                                <input id="editNomor" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Alamat</label>
-                                <textarea rows="3" id="editAlamat" type="text-area" class="form-control" placeholder="" required></textarea>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Foto Profil</label>
-                                <input id="editFoto" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default">
-                                <label>Link Website</label>
-                                <input id="editLink" type="text" class="form-control" placeholder="" required/>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer no-bd">
-                        <button type="button" id="editRowButton" class="btn btn-primary">Ubah</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Modal Tambah -->
-              </div>
             </div>
           </div>
           <!-- end card pertama -->

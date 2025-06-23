@@ -62,7 +62,8 @@
                           <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                         </div>
                       </div>
-                    </li><li>
+                    </li>
+                    <li>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Dashboard</a>
                       <a class="dropdown-item" href="profile.html">Profile</a>
@@ -77,8 +78,8 @@
         <!-- End Navbar -->
       </div>
 
-       <!-- Sidebar -->
-       <div class="sidebar sidebar-style-2">
+      <!-- Sidebar -->
+      <div class="sidebar sidebar-style-2">
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <div class="user">
@@ -97,10 +98,10 @@
             <!-- End sidebar profile -->
             <ul class="nav nav-primary">
               <li class="nav-item">
-                  <a class="collapse" href="../index.html">
-                    <i class="fas fa-home"></i>
-                    <p>Dashboard</p>
-                  </a>
+                <a class="collapse" href="../index.html">
+                  <i class="fas fa-home"></i>
+                  <p>Dashboard</p>
+                </a>
               </li>
               <li class="nav-section">
                 <span class="sidebar-mini-icon">
@@ -283,12 +284,10 @@
                           </select>
                         </div>
                       </div>
-                        <div class="form-group">
-                          <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-filter mr-1"></i>
-                            Filter
-                          </button>
-                        </div>
+                      <div class="form-group">
+                        <button id="apply_filter" class="btn btn-primary">Terapkan Filter</button>
+                        <button id="reset_filter" class="btn btn-danger">Batal</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -308,221 +307,14 @@
                       <i class="fa fa-plus"></i>
                       Tambah Mahasiswa
                     </button>
-                    <button class="btn btn-warning btn-round ml-2" >
+                    <button class="btn btn-warning btn-round ml-2">
                       <i class="fas fa-file-export"></i>
-                       Expor
+                      Expor
                     </button>
                   </div>
                 </div>
                 <!-- Modal tambah-->
                 <div class="card-body">
-                  <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header no-bd">
-                          <h5 class="modal-title">
-                            <span class="fw-mediumbold"> Tambah</span>
-                            <span class="fw-light"> Daftar Mahasiswa </span>
-                          </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                  <label>NIM</label>
-                                  <input id="addNIM" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                  <label>Nama</label>
-                                  <input id="addNama" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <!-- jurusan -->
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                  <label class="form-label" for="jurusan">Jurusan</label>
-                                  <select id="jurusan" onchange="updateProdi()" class="form-control">
-                                    <option></option>
-                                    <option value="mb">Manajemen Bisnis</option>
-                                    <option value="if">Teknik Informatika</option>
-                                    <option value="elektro">Teknik Elektro</option>
-                                    <option value="mesin">Teknik Mesin</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <!-- prodi -->
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                <label class="form-label" for="prodi">Program Studi</label>
-                                  <select id="prodi" class="form-control">
-                                    <option></option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                  <label>Nama Perusahaan</label>
-                                  <input id="addDosen" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                  <label>Status Magang</label>
-                                  <select id="addStatus" class="form-control" required>
-                                    <option></option>
-                                    <option>Diterima</option>
-                                    <option>Ditolak</option>
-                                    <option>Sedang Berlangsung</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                  <label>Tanggal Magang</label>
-                                  <input id="addtanggal" type="date" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer no-bd">
-                          <button type="button" id="addRowButton" class="btn btn-primary">Tambah</button>
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Modal Tambah -->
-
-                  <!-- Modal Edit -->
-                  <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header no-bd">
-                          <h5 class="modal-title">
-                            <span class="fw-mediumbold"> Ubah</span>
-                            <span class="fw-light"> Daftar Mahasiswa </span>
-                          </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="row">
-                              <div class="col-md-6 pr-0">
-                                <div class="form-group form-group-default">
-                                  <label>No</label>
-                                  <input id="editNo" type="text" class="form-control" placeholder="" />
-                                </div>
-                              </div>
-                              <div class="col-md-6 pr-0">
-                                <div class="form-group form-group-default">
-                                  <label>Program Studi</label>
-                                  <select class="form-control" id="editProdi">
-                                    <option></option>
-                                    <optgroup label="Manajemen Bisnis"></optgroup>
-                                    <option>D2 Distribusi Barang</option>
-                                    <option>D3 Akutansi</option>
-                                    <option>D4 Administrasi Bisnis Terapan</option>
-                                    <option>D4 Akutansi Manajerial</option>
-                                    <option>D4 Logistik Perdagangan Internasional</option>
-
-                                    <optgroup label="Teknik Informatika"></optgroup>
-                                    <p>Semua Program Studi dalam Teknik Informatika</p>
-                                    <option>D3 Teknologi Geomatika</option>
-                                    <option>D3 Teknik Informatika</option>
-                                    <option>D4 Animasi</option>
-                                    <option>D4 Teknologi Rekayasa Multimedia</option>
-                                    <option>D4 Rekayasa Keamanan Siber</option>
-                                    <option>D4 Teknologi Rekayasa Perangkat Lunak</option>
-
-                                    <optgroup label="Teknik Elektro"></optgroup>
-                                    <p>Semua Program Studi dalam Teknik Elektro</p>
-                                    <option>D2 Teknik Otomasi</option>
-                                    <option>D3 Teknik Elektronika Manufaktur</option>
-                                    <option>D3 Teknik Instrumentasi</option>
-                                    <option>D4 Teknik Mekatronika</option>
-                                    <option>D4 Teknik Robotika</option>
-                                    <option>D4 Teknologi Rekayasa Pembangkit Energi</option>
-                                    <option>D4 Teknologi Rekayasa Elektronika</option>
-
-                                    <optgroup label="Teknik Mesin"></optgroup>
-                                    <p>Semua Program Studi dalam Teknik Mesin</p>
-                                    <option>D3 Teknik Mesin</option>
-                                    <option>D3 Teknik Perawatan Pesawat Udara</option>
-                                    <option>D4 Teknik Rekayasa Konstruksi Perkapalan</option>
-                                    <option>D4 Teknik Rekayasa Pengelasan dan Fabrikasi</option>
-                                    <option>Profesi Program Profesi Insinyur</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6 pr-0">
-                                <div class="form-group form-group-default">
-                                  <label>JURUSAN</label>
-                                  <select class="form-control" id="editJurusan">
-                                    <option></option>
-                                    <option>Semua Jurusan</option>
-                                    <option>Manajeman Bisnis</option>
-                                    <option>Teknik Informatika</option>
-                                    <option>Teknik Elektro</option>
-                                    <option>Teknik Mesin</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6 pr-0">
-                                <div class="form-group form-group-default">
-                                  <label>NIM</label>
-                                  <input id="eitNIM" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                  <label>Nama</label>
-                                  <input id="editNama" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                  <label>Dosen</label>
-                                  <input id="editDosen" type="text" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                              <div class="col-md-6 pr-0">
-                                <div class="form-group form-group-default">
-                                  <label>Status Magang</label>
-                                  <select id="editStatus" class="form-control" required>
-                                    <option></option>
-                                    <option>Status Mengirimkan</option>
-                                    <option>Magang Diterima</option>
-                                    <option>Magang Ditolak oleh Perusahaan</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6 pr-0">
-                                <div class="form-group form-group-default">
-                                  <label>Tanggal Magang</label>
-                                  <input id="edittanggal" type="date" class="form-control" placeholder="" required/>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer no-bd">
-                          <button type="button" id="editRowButton" class="btn btn-primary">Tambah</button>
-                          <button type="button" id="editRowButton" class="btn btn-danger" data-dismiss="modal">Hapus</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Modal Edit  -->
-
                   <div class="table-responsive">
                     <table id="add-row" class="display table table-striped table-hover">
                       <thead>
@@ -533,7 +325,7 @@
                           <th>Program Studi</th>
                           <th>Nama Perusahaan</th>
                           <th>Tanggal Magang</th>
-                          <th>Status Offer Terakhir</th>>
+                          <th>Status Offer Terakhir</th>
                           <th style="width: 5%; text-align: center">Action</th>
                         </tr>
                       </thead>
@@ -548,35 +340,14 @@
                           <td>Sedang Berlangsung</td>
                           <td>
                             <div class="form-action">
-                              <a href="detail-mahasiswa.html">Selengkapnya</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>434201072</td>
-                          <td>Andri Yani Meuraxa</td>
-                          <td>(RKS) D4 Rekayasa Keamanan Siber</td>
-                          <td>Pt. Pencari Kerja</td>
-                          <td>12-05-2025</td>
-                          <td>Ditolak</td>
-                          <td>
-                            <div class="form-action">
-                              <a href="detail-mahasiswa.html">Selengkapnya</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>434201073</td>
-                          <td>Miftahur Rahma</td>
-                          <td>(TRPL) D4 Teknologi Rekayasa Perangkat Lunak</td>
-                          <td>Pt. Pencari Kerja</td>
-                          <td>12-05-2025</td>
-                          <td>Diterima</td>
-                          <td>
-                            <div class="form-action">
-                              <a href="detail-mahasiswa.html">Selengkapnya</a>
+                              <div class="form-button-action">
+                                <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary">
+                                  <a href="detail-mahasiswa.html"><i class="fa fa-info-circle"></i></a>
+                                </button>
+                                <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger">
+                                  <i class="fa fa-trash"></i>
+                                </button>
+                              </div>
                             </div>
                           </td>
                         </tr>
@@ -599,75 +370,74 @@
       </div>
       <!-- End Footer -->
     </div>
- <!--   Core JS Files   -->
- <script src="../../assets/js/core/jquery.3.2.1.min.js"></script>
- <script src="../../assets/js/core/popper.min.js"></script>
- <script src="../../assets/js/core/bootstrap.min.js"></script>
+    <!--   Core JS Files   -->
+    <script src="../../assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="../../assets/js/core/popper.min.js"></script>
+    <script src="../../assets/js/core/bootstrap.min.js"></script>
 
- <!-- jQuery UI -->
- <script src="../../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
- <script src="../../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="../../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="../../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
- <!-- jQuery Scrollbar -->
- <script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <!-- jQuery Scrollbar -->
+    <script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
- <!-- Chart JS -->
- <script src="../../assets/js/plugin/chart.js/chart.min.js"></script>
+    <!-- Chart JS -->
+    <script src="../../assets/js/plugin/chart.js/chart.min.js"></script>
 
- <!-- jQuery Sparkline -->
- <script src="../../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <!-- jQuery Sparkline -->
+    <script src="../../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
- <!-- Chart Circle -->
- <script src="../../assets/js/plugin/chart-circle/circles.min.js"></script>
+    <!-- Chart Circle -->
+    <script src="../../assets/js/plugin/chart-circle/circles.min.js"></script>
 
- <!-- Datatables -->
- <script src="../../assets/js/plugin/datatables/datatables.min.js"></script>
+    <!-- Datatables -->
+    <script src="../../assets/js/plugin/datatables/datatables.min.js"></script>
 
- <!-- Bootstrap Notify -->
- <script src="../../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <!-- Bootstrap Notify -->
+    <script src="../../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
- <!-- jQuery Vector Maps -->
- <script src="../../assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
- <script src="../../assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+    <!-- jQuery Vector Maps -->
+    <script src="../../assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+    <script src="../../assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
 
- <!-- Sweet Alert -->
- <script src="../../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="../../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
- <!-- Atlantis JS -->
- <script src="../../assets/js/atlantis.min.js"></script>
+    <!-- Atlantis JS -->
+    <script src="../../assets/js/atlantis.min.js"></script>
 
- <!-- Atlantis DEMO methods, don't include it in your project! -->
- <script src="../../assets/js/setting-demo.js"></script>
- <script src="../../assets/js/demo.js"></script>
+    <!-- Atlantis DEMO methods, don't include it in your project! -->
+    <script src="../../assets/js/setting-demo.js"></script>
+    <script src="../../assets/js/demo.js"></script>
     <script>
-
       //jurusan&prodi
       const dataProdi = {
         mb: ["D3 Akutansi", "D4 Administrasi Bisnis Terapan", "D4 Akutansi Manajerial", "D4 Logistik Perdagangan Internasional"],
         if: ["D3 Teknologi Geomatika", "D3 Teknik Informatika", "D4 Animasi", "D4 Teknologi Rekayasa Multimedia", "D4 Rekayasa Keamanan Siber", "D4 Teknologi Rekayasa Perangkat Lunak"],
         elektro: ["D2 Teknik Otomasi", "D3 Teknik Elektronika Manufaktur", "D3 Teknik Instrumentasi", "D4 Teknik Mekatronika", "D4 Teknik Robotika", "D4 Teknologi Rekayasa Pembangkit Energi", "D4 Teknologi Rekayasa Elektronika"],
-        mesin: ["D3 Teknik Mesin", "D3 Teknik Perawatan Pesawat Udara", "D4 Teknik Rekayasa Konstruksi Perkapalan", "D4 Teknik Rekayasa Pengelasan dan Fabrikasi", "Profesi Program Profesi Insinyur"]
-    };
+        mesin: ["D3 Teknik Mesin", "D3 Teknik Perawatan Pesawat Udara", "D4 Teknik Rekayasa Konstruksi Perkapalan", "D4 Teknik Rekayasa Pengelasan dan Fabrikasi", "Profesi Program Profesi Insinyur"],
+      };
 
-    function updateProdi() {
-      const jurusanSelect = document.getElementById("jurusan");
-      const prodiSelect = document.getElementById("prodi");
-      const selectedJurusan = jurusanSelect.value;
+      function updateProdi() {
+        const jurusanSelect = document.getElementById("jurusan");
+        const prodiSelect = document.getElementById("prodi");
+        const selectedJurusan = jurusanSelect.value;
 
-      // Kosongkan dropdown prodi
-      prodiSelect.innerHTML = '<option selected></option>';
-      prodiSelect.innerHTML = '<option>Semua Program Studi</option>';
+        // Kosongkan dropdown prodi
+        prodiSelect.innerHTML = "<option selected></option>";
+        prodiSelect.innerHTML = "<option>Semua Program Studi</option>";
 
-      // Isi prodi jika jurusan dipilih
-      if (dataProdi[selectedJurusan]) {
-        dataProdi[selectedJurusan].forEach(function(prodi) {
-          const option = document.createElement("option");
-          option.value = prodi;
-          option.text = prodi;
-          prodiSelect.appendChild(option);
-        });
+        // Isi prodi jika jurusan dipilih
+        if (dataProdi[selectedJurusan]) {
+          dataProdi[selectedJurusan].forEach(function (prodi) {
+            const option = document.createElement("option");
+            option.value = prodi;
+            option.text = prodi;
+            prodiSelect.appendChild(option);
+          });
+        }
       }
-    }
 
       $(document).ready(function () {
         // Add Row
