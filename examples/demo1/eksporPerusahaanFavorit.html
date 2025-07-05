@@ -31,7 +31,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="blue">
           <a href="index.html" class="logo">
-            <img src="../assets/img/logomyinternship3.png" alt="Myinternship" class="navbar-brand" style="width: 195px; height: 40px" />
+            <img src="../assets/img/my_internship_logo_grey6.png" alt="Myinternship" class="navbar-brand" style="width: 195px; height: 40px" />
           </a>
           <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -194,6 +194,13 @@
                 <div class="card-body">
                   <div class="table-responsive">
                     <table id="add-row" class="display table table-striped table-hover">
+                      <div class="d-flex justify-content-between align-items-center ">
+                        <h2>Detail Ekspor Perusahaan Terfavorit</h2>
+                        <a href="index.html" class="btn btn-md btn-primary btn-round">
+                          <i class="fas fa-arrow-left"></i>
+                          Kembali
+                        </a>
+                      </div>
                       <thead>
                         <tr>
                           <th>No</th>
@@ -228,7 +235,6 @@
                         <thead>
                           <tr>
                             <th>No</th>
-                            <th>Nama Perusahaan</th>
                             <th>Nama Mahasiswa</th>
                             <th>Jurusan</th>
                             <th>Prodi</th>
@@ -300,56 +306,70 @@
 
     <script>
       // Simulasi data
-        const mahasiswaData = {
-          "Pt. Pencari Cinta": [
-            { nama: "Dina Lestari", jurusan: "Teknik", prodi: "Informatika" },
-            { nama: "Budi Santoso", jurusan: "Ekonomi", prodi: "Akuntansi" },
-          ],
-          "Pt. Pencari Scriptjs": [
-            { nama: "Sari Nur", jurusan: "Sastra", prodi: "Sastra Inggris" },
-            { nama: "Adi Wijaya", jurusan: "Teknik", prodi: "Sipil" },
-          ],
-        };
-      
-        const breadcrumbList = document.getElementById("breadcrumb-list");
-      
-        function updateBreadcrumb(companyName) {
-          breadcrumbList.innerHTML = `
+      const mahasiswaData = {
+        "Pt. Pencari Cinta": [
+          { nama: "Dina Lestari", jurusan: "Teknik", prodi: "Informatika" },
+          { nama: "Budi Santoso", jurusan: "Ekonomi", prodi: "Akuntansi" },
+          { nama: "Citra Dewi", jurusan: "Ilmu Komunikasi", prodi: "Hubungan Masyarakat" },
+          { nama: "Doni Saputra", jurusan: "Teknik", prodi: "Teknik Sipil" },
+          { nama: "Eka Putri", jurusan: "Psikologi", prodi: "Psikologi Klinis" },
+          { nama: "Fajar Nugroho", jurusan: "Ekonomi", prodi: "Manajemen" },
+          { nama: "Gita Wulandari", jurusan: "Hukum", prodi: "Ilmu Hukum" },
+          { nama: "Hendra Wijaya", jurusan: "Teknik", prodi: "Teknik Mesin" },
+          { nama: "Indah Permata", jurusan: "Desain", prodi: "Desain Komunikasi Visual" },
+          { nama: "Joko Susilo", jurusan: "Ilmu Sosial", prodi: "Sosiologi" },
+        ],
+        "Pt. Pencari Scriptjs": [
+          { nama: "Sari Nur", jurusan: "Sastra", prodi: "Sastra Inggris" },
+          { nama: "Adi Wijaya", jurusan: "Teknik", prodi: "Sipil" },
+          { nama: "Rina Anggraini", jurusan: "Ilmu Komputer", prodi: "Rekayasa Perangkat Lunak" },
+          { nama: "Bagas Prasetyo", jurusan: "Teknik", prodi: "Informatika" },
+          { nama: "Nadia Utami", jurusan: "Sistem Informasi", prodi: "Manajemen Informatika" },
+          { nama: "Kevin Ardian", jurusan: "Ilmu Komputer", prodi: "Ilmu Komputer" },
+          { nama: "Lia Hartono", jurusan: "Matematika", prodi: "Statistika" },
+          { nama: "Marvin Tan", jurusan: "Teknik", prodi: "Teknik Komputer" },
+          { nama: "Olivia Chen", jurusan: "Bisnis Digital", prodi: "Bisnis Digital" },
+          { nama: "Putra Mahesa", jurusan: "Desain", prodi: "Desain Grafis" },
+        ],
+      };
+
+      const breadcrumbList = document.getElementById("breadcrumb-list");
+
+      function updateBreadcrumb(companyName) {
+        breadcrumbList.innerHTML = `
           <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Dashboard</a></li>
           <li class="breadcrumb-item"><a href="eksporPerusahaanFavorit.html" class="text-white text-decoration-none">Perusahaan Terfavorit</a></li>
             <li class="breadcrumb-item active text-white" aria-current="page">${companyName}</li>
           `;
-        }
-      
-        document.querySelectorAll(".scroll-trigger").forEach((link) => {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const company = this.dataset.company;
-            const detailSection = document.getElementById("detail-section");
-            const tableBody = document.querySelector("#detail-table tbody");
-            tableBody.innerHTML = "";
-      
-            const data = mahasiswaData[company] || [];
-            data.forEach((mhs, index) => {
-              const row = `<tr>
+      }
+
+      document.querySelectorAll(".scroll-trigger").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const company = this.dataset.company;
+          const detailSection = document.getElementById("detail-section");
+          const tableBody = document.querySelector("#detail-table tbody");
+          tableBody.innerHTML = "";
+
+          const data = mahasiswaData[company] || [];
+          data.forEach((mhs, index) => {
+            const row = `<tr>
                               <td>${index + 1}</td>
-                              <td>${company}</td>
                               <td>${mhs.nama}</td>
                               <td>${mhs.jurusan}</td>
                               <td>${mhs.prodi}</td>
                             </tr>`;
-              tableBody.innerHTML += row;
-            });
-      
-            updateBreadcrumb(company);
-            detailSection.style.display = "block";
-            detailSection.scrollIntoView({ behavior: "smooth" });
+            tableBody.innerHTML += row;
           });
+
+          updateBreadcrumb(company);
+          detailSection.style.display = "block";
+          detailSection.scrollIntoView({ behavior: "smooth" });
         });
-      
-        // Inisialisasi default breadcrumb
-        updateBreadcrumb("Selengkapnya");
-      </script>
-      
+      });
+
+      // Inisialisasi default breadcrumb
+      updateBreadcrumb("Selengkapnya");
+    </script>
   </body>
 </html>

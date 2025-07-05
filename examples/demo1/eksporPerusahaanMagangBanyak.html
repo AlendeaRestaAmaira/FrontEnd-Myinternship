@@ -228,10 +228,13 @@
                         <thead>
                           <tr>
                             <th>No</th>
-                            <th>Nama Perusahaan</th>
-                            <th>Nama Mahasiswa</th>
+                            <th>NIM</th>
+                            <th>Nama</th>
                             <th>Jurusan</th>
                             <th>Prodi</th>
+                            <th>Mulai Magang</th>
+                            <th>Akhir Magang</th>
+                            <th>Status Magang</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -299,57 +302,91 @@
     <script src="../assets/js/demo.js"></script>
 
     <script>
-      // Simulasi data
-        const mahasiswaData = {
+      // Data Mahasiswa yang sudah diperbarui
+      const mahasiswaData = {
           "Pt. Pencari Cinta": [
-            { nama: "Dina Lestari", jurusan: "Teknik", prodi: "Informatika" },
-            { nama: "Budi Santoso", jurusan: "Ekonomi", prodi: "Akuntansi" },
+              { nim: "3312301001", nama: "Dina Lestari", jurusan: "Teknik", prodi: "Informatika", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3312301002", nama: "Budi Santoso", jurusan: "Ekonomi", prodi: "Akuntansi", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3312301003", nama: "Citra Dewi", jurusan: "Ilmu Komunikasi", prodi: "Hubungan Masyarakat", mulai: "1 Jul 2025", akhir: "30 Nov 2025", status: "Aktif" },
+              { nim: "3312301004", nama: "Doni Saputra", jurusan: "Teknik", prodi: "Teknik Sipil", mulai: "1 Sep 2025", akhir: "28 Feb 2026", status: "Akan Datang" },
+              { nim: "3312301005", nama: "Eka Putri", jurusan: "Psikologi", prodi: "Psikologi Klinis", mulai: "1 Feb 2025", akhir: "30 Jun 2025", status: "Selesai" },
+              { nim: "3312301006", nama: "Fajar Nugroho", jurusan: "Ekonomi", prodi: "Manajemen", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3312301007", nama: "Gita Wulandari", jurusan: "Hukum", prodi: "Ilmu Hukum", mulai: "1 Feb 2025", akhir: "30 Jun 2025", status: "Selesai" },
+              { nim: "3312301008", nama: "Hendra Wijaya", jurusan: "Teknik", prodi: "Teknik Mesin", mulai: "1 Sep 2025", akhir: "28 Feb 2026", status: "Akan Datang" },
+              { nim: "3312301009", nama: "Indah Permata", jurusan: "Desain", prodi: "Desain Komunikasi Visual", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3312301010", nama: "Joko Susilo", jurusan: "Ilmu Sosial", prodi: "Sosiologi", mulai: "1 Feb 2025", akhir: "30 Jun 2025", status: "Selesai" }
           ],
           "Pt. Pencari Scriptjs": [
-            { nama: "Sari Nur", jurusan: "Sastra", prodi: "Sastra Inggris" },
-            { nama: "Adi Wijaya", jurusan: "Teknik", prodi: "Sipil" },
-          ],
-        };
-      
-        const breadcrumbList = document.getElementById("breadcrumb-list");
-      
-        function updateBreadcrumb(companyName) {
+              { nim: "3412301011", nama: "Sari Nur", jurusan: "Sastra", prodi: "Sastra Inggris", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3412301012", nama: "Adi Wijaya", jurusan: "Teknik", prodi: "Informatika", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3412301013", nama: "Rina Anggraini", jurusan: "Ilmu Komputer", prodi: "Rekayasa Perangkat Lunak", mulai: "1 Jul 2025", akhir: "30 Nov 2025", status: "Aktif" },
+              { nim: "3412301014", nama: "Bagas Prasetyo", jurusan: "Teknik", prodi: "Teknik Komputer", mulai: "1 Sep 2025", akhir: "28 Feb 2026", status: "Akan Datang" },
+              { nim: "3412301015", nama: "Nadia Utami", jurusan: "Sistem Informasi", prodi: "Manajemen Informatika", mulai: "1 Feb 2025", akhir: "30 Jun 2025", status: "Selesai" },
+              { nim: "3412301016", nama: "Kevin Ardian", jurusan: "Ilmu Komputer", prodi: "Ilmu Komputer", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3412301017", nama: "Lia Hartono", jurusan: "Matematika", prodi: "Statistika", mulai: "1 Feb 2025", akhir: "30 Jun 2025", status: "Selesai" },
+              { nim: "3412301018", nama: "Marvin Tan", jurusan: "Bisnis Digital", prodi: "Bisnis Digital", mulai: "1 Sep 2025", akhir: "28 Feb 2026", status: "Akan Datang" },
+              { nim: "3412301019", nama: "Olivia Chen", jurusan: "Desain", prodi: "Desain Grafis", mulai: "1 Agu 2025", akhir: "31 Des 2025", status: "Aktif" },
+              { nim: "3412301020", nama: "Putra Mahesa", jurusan: "Teknik", prodi: "Informatika", mulai: "1 Feb 2025", akhir: "30 Jun 2025", status: "Selesai" }
+          ]
+      };
+  
+      // Fungsi untuk menentukan warna badge berdasarkan status
+      function getStatusBadge(status) {
+          switch (status) {
+              case "Aktif":
+                  return "badge-success";
+              case "Selesai":
+                  return "badge-secondary";
+              case "Akan Datang":
+                  return "badge-warning";
+              default:
+                  return "badge-info";
+          }
+      }
+  
+      const breadcrumbList = document.getElementById("breadcrumb-list");
+  
+      function updateBreadcrumb(companyName) {
           breadcrumbList.innerHTML = `
-          <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="eksporPerusahaanMagangBanyak.html" class="text-white text-decoration-none">Perusahaan Magang Terbanyak</a></li>
-          <li class="breadcrumb-item active text-white" aria-current="page">${companyName}</li>
+              <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="eksporPerusahaanMagangBanyak.html" class="text-white text-decoration-none">Perusahaan Magang Terbanyak</a></li>
+              <li class="breadcrumb-item active text-white" aria-current="page">${companyName}</li>
           `;
-        }
-      
-        document.querySelectorAll(".scroll-trigger").forEach((link) => {
+      }
+  
+      document.querySelectorAll(".scroll-trigger").forEach((link) => {
           link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const company = this.dataset.company;
-            const detailSection = document.getElementById("detail-section");
-            const tableBody = document.querySelector("#detail-table tbody");
-            tableBody.innerHTML = "";
-      
-            const data = mahasiswaData[company] || [];
-            data.forEach((mhs, index) => {
-              const row = `<tr>
-                              <td>${index + 1}</td>
-                              <td>${company}</td>
-                              <td>${mhs.nama}</td>
-                              <td>${mhs.jurusan}</td>
-                              <td>${mhs.prodi}</td>
-                            </tr>`;
-              tableBody.innerHTML += row;
-            });
-      
-            updateBreadcrumb(company);
-            detailSection.style.display = "block";
-            detailSection.scrollIntoView({ behavior: "smooth" });
+              e.preventDefault();
+              const company = this.dataset.company;
+              const detailSection = document.getElementById("detail-section");
+              const tableBody = document.querySelector("#detail-table tbody");
+              tableBody.innerHTML = "";
+  
+              const data = mahasiswaData[company] || [];
+              data.forEach((mhs, index) => {
+                  // PERBAIKAN: Menyesuaikan baris tabel dengan semua kolom data
+                  const row = `<tr>
+                                  <td>${index + 1}</td>
+                                  <td>${mhs.nim}</td>
+                                  <td>${mhs.nama}</td>
+                                  <td>${mhs.jurusan}</td>
+                                  <td>${mhs.prodi}</td>
+                                  <td>${mhs.mulai}</td>
+                                  <td>${mhs.akhir}</td>
+                                  <td><span class="badge ${getStatusBadge(mhs.status)}">${mhs.status}</span></td>
+                              </tr>`;
+                  tableBody.innerHTML += row;
+              });
+  
+              updateBreadcrumb(company);
+              detailSection.style.display = "block";
+              detailSection.scrollIntoView({ behavior: "smooth" });
           });
-        });
-      
-        // Inisialisasi default breadcrumb
-        updateBreadcrumb("Selengkapnya");
-      </script>
+      });
+  
+      // Inisialisasi default breadcrumb
+      updateBreadcrumb("Selengkapnya");
+  </script>
       
   </body>
 </html>
